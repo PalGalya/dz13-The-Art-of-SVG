@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f6f9fc;
+  color: #333333;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2d3e50;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #34495e;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.svg-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .svg-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+.svg-item {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.svg-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Базові стилі для фігур */
+svg {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  margin: 0 auto;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+svg:hover {
+  background-color: #f0f0f0;
+}
+
+.square {
+  fill: #7d5fff;
+  stroke: #4834d4;
+  stroke-width: 5px;
+  transition: fill 0.4s ease, stroke 0.4s ease;
+}
+
+.rectangle {
+  fill: #22a6b3;
+  stroke: #0b8599;
+  stroke-width: 5px;
+}
+
+.circle {
+  fill: #ff6b6b;
+  stroke: #ee5253;
+  stroke-width: 5px;
+}
+
+.ellipse {
+  fill: #ff9ff3;
+  stroke: #f368e0;
+  stroke-width: 5px;
+}
+
+/* Анімація для квадрата */
+@keyframes moveAndScale {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    fill: #7d5fff;
+    opacity: 1;
+  }
+
+  12.5% {
+    transform: translate(-100%, -100%) scale(0.05) rotate(-90deg);
+    fill: #ff6b6b;
+    opacity: 1;
+  }
+
+  25% {
+    transform: translate(0, 0) scale(1) rotate(90deg);
+    fill: #22a6b3;
+    opacity: 1;
+  }
+
+  37.5% {
+    transform: translate(100%, -100%) scale(0.05) rotate(180deg);
+    fill: #ffda79;
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(0, 0) scale(1) rotate(-90deg);
+    fill: #8ac0c7;
+    opacity: 1;
+  }
+
+  62.5% {
+    transform: translate(100%, 100%) scale(0.05) rotate(0deg);
+    fill: #9a6bdb;
+    opacity: 1;
+  }
+
+  75% {
+    transform: translate(0, 0) scale(1) rotate(90deg);
+    fill: #d1e562;
+    opacity: 1;
+  }
+
+  87.5% {
+    transform: translate(-100%, 100%) scale(0.05) rotate(180deg);
+    fill: #a3cb38;
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1) rotate(-90deg);
+    fill: #7d5fff;
+    opacity: 1;
+  }
+}
+
+.animated-shape {
+  animation: moveAndScale 16s infinite ease-in-out;
+  transform-origin: center;
+  transform-box: fill-box;
+  will-change: transform, fill, opacity;
+}
+
+/* Анімація зупиняється коли навести на квадрат курсором */
+.animated-shape:hover {
+  animation-play-state: paused;
+}
